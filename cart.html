@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart - SlayShop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="header-left">
+<h1>🛒 Your Cart</h1>
+<a href="index.html" style="color:white; text-decoration:none; font-size:14px;">← Back to Shop</a>
+</div>
+<div class="header-right">
+<a href="wishlist.html" class="icon-link">❤️ Wishlist</a>
+<div class="profile-dropdown">
+<button class="profile-btn" onclick="toggleProfileMenu()">👤 Profile</button>
+<div class="profile-menu" id="profileMenu">
+<div id="loginContent">
+<button onclick="goToLogin()">Login</button>
+<button onclick="goToRegister()">Register</button>
+</div>
+<div id="userContent" style="display:none;">
+<h3 id="userName"></h3>
+<p><strong>Email:</strong> <span id="userEmail"></span></p>
+<p><strong>Address:</strong> <span id="userAddress"></span></p>
+<hr>
+<a href="wishlist.html">➤ My Wishlist</a><br>
+<button onclick="logout()" class="logout-btn">Logout</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<ul id="cart-items"></ul>
+
+<h2 id="total"></h2>
+
+<script src="script.js"></script>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartList = document.getElementById("cart-items");
+
+let total = 0;
+
+cart.forEach((item, index) => {
+
+let li = document.createElement("li");
+
+li.classList.add("product-card");
+
+li.innerHTML = `
+<button class="remove-btn" onclick="removeCart(${index})">✖</button>
+
+<img src="${item.image}">
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+`;
+
+cartList.appendChild(li);
+
+total += Number(item.price);
+
+});
+
+document.getElementById("total").innerText = "Total: ₹" + total;
+
+
+function removeCart(index){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.splice(index,1);
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+location.reload();
+
+}
+
+// Initialize profile menu
+checkUserLogin();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - SlayShop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="header-left">
+<h1>SlayShop - Login</h1>
+</div>
+<div class="header-right">
+<a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">← Back to Shop</a>
+</div>
+</header>
+
+<div class="form-box">
+<h2>Login to Your Account</h2>
+
+<input type="text" id="loginEmail" placeholder="Email"><br><br>
+
+<input type="password" id="loginPassword" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p style="text-align:center; margin-top:20px;">Don't have an account? <a href="register.html">Register Here</a></p>
+
+</div>
+
+<script>
+
+function login(){
+let email = document.getElementById("loginEmail").value;
+let password = document.getElementById("loginPassword").value;
+
+if(!email || !password){
+alert("Please fill in all fields!");
+return;
+}
+
+// Save user data to localStorage
+let userData = {
+name: email.split("@")[0],
+email: email,
+address: "Not Set"
+};
+
+localStorage.setItem("currentUser", JSON.stringify(userData));
+
+alert("Login Successful!");
+
+window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>

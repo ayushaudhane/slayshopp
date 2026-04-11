@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SlayShop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="header-left">
+<h1>SLAYYYSHOP</h1>
+<p>Aesthetic Clothes For Girlies</p>
+</div>
+
+<div class="header-right">
+<a href="wishlist.html" class="icon-link">❤️ Wishlist</a>
+<a href="cart.html" class="icon-link">🛒 Cart</a>
+<div class="profile-dropdown">
+<button class="profile-btn" onclick="toggleProfileMenu()">👤 Profile</button>
+<div class="profile-menu" id="profileMenu">
+<div id="loginContent">
+<button onclick="goToLogin()">Login</button>
+<button onclick="goToRegister()">Register</button>
+</div>
+<div id="userContent" style="display:none;">
+<h3 id="userName"></h3>
+<p><strong>Email:</strong> <span id="userEmail"></span></p>
+<p><strong>Address:</strong> <span id="userAddress"></span></p>
+<hr>
+<a href="wishlist.html">➤ My Wishlist</a><br>
+<a href="cart.html">➤ My Cart</a><br>
+<button onclick="logout()" class="logout-btn">Logout</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+</div>
+</section>
+
+<section class="category-carousel">
+
+<div class="carousel-container">
+<div class="carousel-wrapper" id="carouselWrapper">
+
+<div class="category-item" onclick="goToCategory('western')">
+<div class="category-image">
+<img src="images/download (10).jpg" alt="Western Wear">
+</div>
+<p>Western Wear</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('ethnic')">
+<div class="category-image">
+<img src="images/mahimamahajanoffical.jpg" alt="Ethnic Wear">
+</div>
+<p>Ethnic Wear</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('beauty')">
+<div class="category-image">
+<img src="images/download (7).jpg" alt="Beauty">
+</div>
+<p>Beauty</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('footwear')">
+<div class="category-image">
+<img src="images/Sustainable Fashion Brands Actually Worth the Hype.jpg" alt="Footwear">
+</div>
+<p>Footwear</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('handbags')">
+<div class="category-image">
+<img src="images/download (9).jpg" alt="Handbags">
+</div>
+<p>Handbags</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('accessories')">
+<div class="category-image">
+<img src="images/download (8).jpg" alt="Accessories">
+</div>
+<p>Accessories</p>
+</div>
+
+<div class="category-item" onclick="goToCategory('sportswear')">
+<div class="category-image">
+<img src="images/Sporty & Rich x adidas Originals.jpg" alt="Sportswear">
+</div>
+<p>Sportswear</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="category-header" id="categoryHeader" style="display:none;">
+<h2 id="categoryTitle"></h2>
+<p id="categoryDesc"></p>
+</section>
+
+<section class="products" id="productsSection">
+<div class="product">
+<img src="images/HomeStretch™ Rib Solo Longsleeve.jpg">
+<h3>Top</h3>
+<p>₹999</p>
+<button onclick="addToCart('Top','999','images/HomeStretch™ Rib Solo Longsleeve.jpg')">Add to Cart</button>
+<button onclick="addToWishlist('Top', '999', 'images/HomeStretch™ Rib Solo Longsleeve.jpg')">❤️ Wishlist</button>
+</div>
+
+<div class="product">
+<img src="images/The Featherlight Cashmere Cardigan_ Yes, it is as soft as it sounds_.jpg">
+<h3>Cardigan</h3>
+<p>₹1299</p>
+<button onclick="addToCart('Cardigan','1299','images/The Featherlight Cashmere Cardigan_ Yes, it is as soft as it sounds_.jpg')">Add to Cart</button>
+<button onclick="addToWishlist('Cardigan', '1299', 'images/The Featherlight Cashmere Cardigan_ Yes, it is as soft as it sounds_.jpg')">❤️ Wishlist</button>
+</div>
+
+<div class="product">
+<img src="images/our classic blue dream is coming to life tomorrow - tomorrow 7PM.jpg">
+<h3>Soft Girl Hoodie</h3>
+<p>₹1499</p>
+<button onclick="addToCart('Soft Girl Hoodie','1499','images/our classic blue dream is coming to life tomorrow - tomorrow 7PM.jpg')">Add to Cart</button>
+<button onclick="addToWishlist('Soft Girl Hoodie', '1499', 'images/our classic blue dream is coming to life tomorrow - tomorrow 7PM.jpg')">❤️ Wishlist</button>
+</div>
+
+<div class="product">
+<img src="images/wide leg jeans.jpg">
+<h3>Wide Leg Jeans</h3>
+<p>₹1999</p>
+<button onclick="addToCart('Wide Leg Jeans','1999', 'images/wide leg jeans.jpg')">Add to Cart</button>
+<button onclick="addToWishlist('Wide Leg Jeans', '1999', 'images/wide leg jeans.jpg')">❤️ Wishlist</button>
+</div>
+</section>
+
+<section class="cart">
+<h2>🛒 Your Cart</h2>
+<ul id="cart-items"></ul>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
