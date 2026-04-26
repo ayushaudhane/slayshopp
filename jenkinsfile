@@ -1,33 +1,20 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/ayushaudhane/slayshopp.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Building project...'
-                // Example:
-                // sh 'npm install'
-                // sh 'mvn clean install'
+                echo 'Building the app'
             }
         }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                // Example:
-                // sh 'npm test'
+        stage('Test'){
+            steps{
+                echo 'Running tests'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying project...'
+        stage('Deploy'){
+            steps{
+                echo 'Deploying the app'
             }
         }
     }
